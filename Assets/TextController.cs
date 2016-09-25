@@ -17,7 +17,9 @@ public class TextController : MonoBehaviour {
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			text.text = "Space Pressed";
+			text.text = "You are Commander Shepard, tasked with bringing down Sarren with the Normandy and her crew.\n" +
+						"Sarren's only known associate is Matriach Benezia. \n\n" +
+						"You can [C]all Benezia, [T]ravel to Benezia, or try to find her daghter [L]iara.";
 		}
 	}
 }
