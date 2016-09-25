@@ -19,46 +19,37 @@ public class TextController : MonoBehaviour
 	void Update ()
 	{
 		print (gameState);
-		if (gameState == States.mission) {
-			state_mission ();
-		} else if (gameState == States.call) {
-			state_call ();
-		} else if (gameState == States.call_wait) {
-			state_call_wait ();
-		} else if (gameState == States.travel) {
-			state_travel ();
-		} else if (gameState == States.liara) {
-			state_liara ();
-		} else if (gameState == States.mission_liara) {
-			state_mission_liara ();
-		} else if (gameState == States.call_liara) {
-			state_call_liara ();
-		} else if (gameState == States.travel_liara) {
-			state_travel_liara ();
-		} else if (gameState == States.success) {
-			state_success ();
-		}
+		if 		(gameState == States.mission) 		{ mission (); }
+		else if (gameState == States.call) 			{ call (); }
+		else if (gameState == States.call_wait)	 	{ call_wait (); }
+		else if (gameState == States.travel) 		{ travel (); }
+		else if (gameState == States.liara) 		{ liara (); }
+		else if (gameState == States.mission_liara)	{ mission_liara (); }
+		else if (gameState == States.call_liara)	{ call_liara (); }
+		else if (gameState == States.travel_liara)	{ travel_liara (); }
+		else if (gameState == States.success)		{ success (); }
 	}
 
-	void state_mission ()
+	void mission ()
 	{
-		text.text = "You are Commander Shepard, tasked with bringing down Sarren with the Normandy and her crew.\n" +
+		text.text = "You are Commander Shepard, SPECTRE and captain of the spaceship Normandy.\n" +
+					"You have been ordered to stop fellow SPECTRE Sarren from destroying the galaxy.\n" +
 					"Sarren's only known associate is Matriach Benezia. \n\n" +
-					"You can [C]all Benezia, [T]ravel to Benezia, or try to find her daghter [L]iara.";
+					"You can:\n[C]all Benezia,\n[T]ravel to Benezia,\n[F]ind her daughter Liara.";
 		if (Input.GetKeyDown (KeyCode.C)) {
 			gameState = States.call;
 		} else if (Input.GetKeyDown (KeyCode.T)) {
 			gameState = States.travel;
-		} else if (Input.GetKeyDown (KeyCode.L)) {
+		} else if (Input.GetKeyDown (KeyCode.F)) {
 			gameState = States.liara;
 		} 
 	}
 	
-	void state_mission_liara ()
+	void mission_liara ()
 	{
-		text.text = "You are Commander Shepard, tasked with bringing down Sarren with the Normandy and her crew.\n" +
+		text.text = "You have been ordered to stop fellow SPECTRE Sarren from destroying the galaxy.\n" +
 					"You have enlisted the help of Liara to talk to her mother Matriach Benezia, Sarren's only known associate. \n\n" +
-					"You can [C]all Benezia, [T]ravel to Benezia";
+					"You can:\n[C]all Benezia,\n[T]ravel to Benezia";
 		if (Input.GetKeyDown (KeyCode.C)) {
 			gameState = States.call_liara;
 		} else if (Input.GetKeyDown (KeyCode.T)) {
@@ -66,10 +57,10 @@ public class TextController : MonoBehaviour
 		}
 	}
 	
-	void state_call ()
+	void call ()
 	{
-		text.text = "You call Benezia over the Cortex, you are greeted by an assistant that puts you on hold.\n\n" +
-					"You can [W]ait, or you can [H]ang up.";
+		text.text = "You call Benezia over the Cortex.\nYou are greeted by an assistant that puts you on hold.\n\n" +
+					"You can:\n[W]ait, or you can [H]ang up.";
 		if (Input.GetKeyDown (KeyCode.W)) {
 			gameState = States.call_wait;
 		} else if (Input.GetKeyDown (KeyCode.H)) {
@@ -77,20 +68,20 @@ public class TextController : MonoBehaviour
 		}
 	}
 	
-	void state_call_liara ()
+	void call_liara ()
 	{
-		text.text = "Liara calls Benezia over the Cortex, she begins talking in an alien lanuage.\n" +
-					"At first it seems to be going well, but Liara gets more and more angry until she eventually slams down the phone \n\n" +
-					"You decide that this won't be possible over the phone and [G]ive up.";
+		text.text = "Liara calls Benezia over the Cortex.\nShe begins talking in an alien lanuage.\n" +
+					"At first it seems to be going well...\nLiara gets more and more angry until she slams down the phone.\n\n" +
+					"[G]ive up, this won't be possible over the phone.";
 		if (Input.GetKeyDown (KeyCode.G)) {
 			gameState = States.mission_liara;
 		}
 	}
 
-	void state_call_wait ()
+	void call_wait ()
 	{
-		text.text = "You hear an advert that describes Benezia's favorite store on the Citadel.\n\n" +
-					"You can [W]ait, or you can [H]ang up.";
+		text.text = "You hear an advert for Benezia's favorite store on the Citadel.\n\n" +
+					"You can:\n[W]ait, or you can [H]ang up.";
 		if (Input.GetKeyDown (KeyCode.W)) {
 			gameState = States.call_wait;
 		} else if (Input.GetKeyDown (KeyCode.H)) {
@@ -98,42 +89,42 @@ public class TextController : MonoBehaviour
 		}
 	}
 	
-	void state_travel ()
+	void travel ()
 	{
-		text.text = "You travel accross the galaxy to Peek 15 of Noveria to confront Benzia.\n" +
-					"You are Assualted by Biotic Commandos when you attempt to speak to Benezia. \n\n" +
+		text.text = "You travel accross the galaxy to Noveria to confront Benzia.\n" +
+					"You are Assualted by her Biotic Commandos. \n\n" +
 					"They are too strong for you. You must [R]un Away!";
 		if (Input.GetKeyDown (KeyCode.R)) {
 			gameState = States.mission;
 		}
 	}
 
-	void state_liara ()
+	void liara ()
 	{
-		text.text = "You travel accross the galaxy find Benezia's Daghter Liara, an archeologist and prothean expert.\n" +
-					"She agrees to help talk to her mother who dosen't seem to be acting herself. \n\n" +
-					"You can [R]esume your mission, together.";
+		text.text = "You travel accross the galaxy find Benezia's Daughter Liara.\n" +
+					"Liara is an archeologist and prothean expert.\nShe agrees to help talk to her mother.\nShe is worried that Benezia doesn't seem to be acting herself.\n\n" +
+					"[R]esume your mission, together.";
 		if (Input.GetKeyDown (KeyCode.R)) {
 			gameState = States.mission_liara;
 		}
 	}
 	
-	void state_travel_liara ()
+	void travel_liara ()
 	{
-		text.text = "You travel accross the galaxy to Peek 15 of Noveria to confront Benzia with her Daughter Liara\n" +
-					"Together with Liara's Biotic powers you dispatch Benezia's Guards.\n" +
-					"Liara projects a Biotic Barrier around her mother's mind, freeing her of her alligence to Sarren.\n\n" +
+		text.text = "You travel accross the galaxy to Noveria.\n" +
+					"Together with Liara's Biotic powers you the Commandos.\n" +
+					"Liara projects a Biotic Barrier around her mother's mind.\nThis frees Benezia of her alligence to Sarren.\n\n" +
 					"[Press any Key]";
 		if (Input.anyKeyDown) {
 			gameState = States.success;
 		}
 	}
 	
-	void state_success ()
+	void success ()
 	{
-		text.text = "Free of Sarren's infulence Benezia devulges the intricicies of his plan.\n" +
-					"Together with the Crew of the Normandy, Liara and her mother Benezia, you assault Sarren's base of operations.\n" +
-					"You shoot Sarren in the head and the galaxy is saved.\n\n" +
+		text.text = "Benezia devulges the intricicies of Sarren's plan.\n" +
+					"With the Crew of the Normandy, Liara and her mother Benezia:\n\nYou assault Sarren's base of operations.\n" +
+					"You shoot Sarren in the head.\nTthe galaxy is saved.\n\n" +
 					"[The End]";
 	}
 }
