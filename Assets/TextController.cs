@@ -80,11 +80,9 @@ public class TextController : MonoBehaviour
 	void state_call_liara ()
 	{
 		text.text = "Liara calls Benezia over the Cortex, she begins talking in an alien lanuage.\n" +
-					"At first it seems to be going well, but liara gets more and more angry until she eventually slams down the phone \n\n" +
-					"You can have Liara [C]all back or [G]ive up.";
-		if (Input.GetKeyDown (KeyCode.C)) {
-			gameState = States.call_liara;
-		} else if (Input.GetKeyDown (KeyCode.H)) {
+					"At first it seems to be going well, but Liara gets more and more angry until she eventually slams down the phone \n\n" +
+					"You decide that this won't be possible over the phone and [G]ive up.";
+		if (Input.GetKeyDown (KeyCode.G)) {
 			gameState = States.mission_liara;
 		}
 	}
@@ -113,7 +111,7 @@ public class TextController : MonoBehaviour
 	void state_liara ()
 	{
 		text.text = "You travel accross the galaxy find Benezia's Daghter Liara, an archeologist and prothean expert.\n" +
-					"She agrees to help talk to her mother who dosen't seem to be acter herself. \n\n" +
+					"She agrees to help talk to her mother who dosen't seem to be acting herself. \n\n" +
 					"You can [R]esume your mission, together.";
 		if (Input.GetKeyDown (KeyCode.R)) {
 			gameState = States.mission_liara;
