@@ -131,8 +131,8 @@ public class TextController : MonoBehaviour
 	
 	void state_success ()
 	{
-		text.text = "Free of Sarren's infulence Benezia devulges the intricicies of his plan." +
-					"Together with the Crew of the Normandy, Liara and her mother Benezia you assault Sarren's base of operations. \n" +
+		text.text = "Free of Sarren's infulence Benezia devulges the intricicies of his plan.\n" +
+					"Together with the Crew of the Normandy, Liara and her mother Benezia, you assault Sarren's base of operations.\n" +
 					"You shoot Sarren in the head and the galaxy is saved.\n\n" +
 					"[The End]";
 	}
