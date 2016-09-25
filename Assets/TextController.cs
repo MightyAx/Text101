@@ -19,28 +19,18 @@ public class TextController : MonoBehaviour
 	void Update ()
 	{
 		print (gameState);
-		if (gameState == States.mission) {
-			state_mission ();
-		} else if (gameState == States.call) {
-			state_call ();
-		} else if (gameState == States.call_wait) {
-			state_call_wait ();
-		} else if (gameState == States.travel) {
-			state_travel ();
-		} else if (gameState == States.liara) {
-			state_liara ();
-		} else if (gameState == States.mission_liara) {
-			state_mission_liara ();
-		} else if (gameState == States.call_liara) {
-			state_call_liara ();
-		} else if (gameState == States.travel_liara) {
-			state_travel_liara ();
-		} else if (gameState == States.success) {
-			state_success ();
-		}
+		if 		(gameState == States.mission) 		{ mission (); }
+		else if (gameState == States.call) 			{ call (); }
+		else if (gameState == States.call_wait)	 	{ call_wait (); }
+		else if (gameState == States.travel) 		{ travel (); }
+		else if (gameState == States.liara) 		{ liara (); }
+		else if (gameState == States.mission_liara)	{ mission_liara (); }
+		else if (gameState == States.call_liara)	{ call_liara (); }
+		else if (gameState == States.travel_liara)	{ travel_liara (); }
+		else if (gameState == States.success)		{ success (); }
 	}
 
-	void state_mission ()
+	void mission ()
 	{
 		text.text = "You are Commander Shepard, tasked with bringing down Sarren with the Normandy and her crew.\n" +
 					"Sarren's only known associate is Matriach Benezia. \n\n" +
@@ -54,7 +44,7 @@ public class TextController : MonoBehaviour
 		} 
 	}
 	
-	void state_mission_liara ()
+	void mission_liara ()
 	{
 		text.text = "You are Commander Shepard, tasked with bringing down Sarren with the Normandy and her crew.\n" +
 					"You have enlisted the help of Liara to talk to her mother Matriach Benezia, Sarren's only known associate. \n\n" +
@@ -66,7 +56,7 @@ public class TextController : MonoBehaviour
 		}
 	}
 	
-	void state_call ()
+	void call ()
 	{
 		text.text = "You call Benezia over the Cortex, you are greeted by an assistant that puts you on hold.\n\n" +
 					"You can [W]ait, or you can [H]ang up.";
@@ -77,7 +67,7 @@ public class TextController : MonoBehaviour
 		}
 	}
 	
-	void state_call_liara ()
+	void call_liara ()
 	{
 		text.text = "Liara calls Benezia over the Cortex, she begins talking in an alien lanuage.\n" +
 					"At first it seems to be going well, but Liara gets more and more angry until she eventually slams down the phone \n\n" +
@@ -87,7 +77,7 @@ public class TextController : MonoBehaviour
 		}
 	}
 
-	void state_call_wait ()
+	void call_wait ()
 	{
 		text.text = "You hear an advert that describes Benezia's favorite store on the Citadel.\n\n" +
 					"You can [W]ait, or you can [H]ang up.";
@@ -98,7 +88,7 @@ public class TextController : MonoBehaviour
 		}
 	}
 	
-	void state_travel ()
+	void travel ()
 	{
 		text.text = "You travel accross the galaxy to Peek 15 of Noveria to confront Benzia.\n" +
 					"You are Assualted by Biotic Commandos when you attempt to speak to Benezia. \n\n" +
@@ -108,7 +98,7 @@ public class TextController : MonoBehaviour
 		}
 	}
 
-	void state_liara ()
+	void liara ()
 	{
 		text.text = "You travel accross the galaxy find Benezia's Daghter Liara, an archeologist and prothean expert.\n" +
 					"She agrees to help talk to her mother who dosen't seem to be acting herself. \n\n" +
@@ -118,7 +108,7 @@ public class TextController : MonoBehaviour
 		}
 	}
 	
-	void state_travel_liara ()
+	void travel_liara ()
 	{
 		text.text = "You travel accross the galaxy to Peek 15 of Noveria to confront Benzia with her Daughter Liara\n" +
 					"Together with Liara's Biotic powers you dispatch Benezia's Guards.\n" +
@@ -129,7 +119,7 @@ public class TextController : MonoBehaviour
 		}
 	}
 	
-	void state_success ()
+	void success ()
 	{
 		text.text = "Free of Sarren's infulence Benezia devulges the intricicies of his plan.\n" +
 					"Together with the Crew of the Normandy, Liara and her mother Benezia, you assault Sarren's base of operations.\n" +
